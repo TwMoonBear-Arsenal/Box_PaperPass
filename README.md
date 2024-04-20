@@ -35,15 +35,23 @@ App_SimpleBox
 
 * Github Repo<br/>
   📁.github<br/>
-  └ 📁actions<br/>
-  　└ ◻️ModuleTest.yml<br/>
-  　└ ◻️PublishZip.yml<br/>  　
+   └📁actions<br/>
+  　 └🗎 ModTest.yml<br/>
+  　 └🗎 PublishZip.yml<br/>
   📁.vs<br/>
+  📁doc<br/>
   📁source<br/>
-  ◻️.gitignore<br/>
-  ◻️docker-compose.yml<br/>
-  ◻️Dockerfile<br/>
-  ◻️README.md<br/>
+   ┝📁Scr_SimpleBox<br/>
+   │ ┝🗎 Scr_SimpleBox_Prompt.txt
+   │ └🗎 Scr_SimpleBox.sh
+   └📁Scr_SimpleBox_ModTest<br/>
+     ┝🗎 Scr_SimpleBox_ModTest_Prompt.txt
+     └🗎 Scr_SimpleBox_ModTest.sh
+  🗎 .gitignore<br/>
+  🗎 docker-compose.yml<br/>
+  🗎 Dockerfile<br/>
+  🗎 Mod_Gundam1.sln<br/>
+  🗎 README.md<br/>
 
 # 參、REPO使用方法
 
