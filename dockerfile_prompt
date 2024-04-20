@@ -1,0 +1,45 @@
+壹、目的: 
+一、未來運用構想：
+I has a bash script that can set a simple vulnerable Ubuntu for lecture.
+二、擬請ChatGPT提供：
+please provide a dockerfile to to following work.
+
+貳、需求:
+一、設定基底容器
+  * Ubuntu new and small zie image  
+二、複製檔案
+  * Copy a file,boxsetting.sh to root home directory.
+  * chmod +x boxsetting.sh.
+  * run the boxsetting.sh to set the Ubuntu. 
+三、設定網路
+  * Set network mapping 22:22,9527:9527
+
+參、ChatGPT回復格式:
+一、注意事項：
+  * do the work step by step.make it easy to understand for students.
+  * provide clear explanation with traditional Chinese.
+二、回復範例：
+  # 說明
+  # 1.本容器可...提供...
+  # 2.使用時，請將本檔案及...放置在同一路徑下，於terminal執行...docker build...，便可使用docker指令看到image...
+
+  # 設定基底容器
+  # 使用一個新且體積小的Ubuntu基底映像檔
+  FROM ubuntu:latest
+  # 更新Ubuntu套件清單，確保安裝時使用最新版本的軟體
+  RUN apt-get update && apt-get install -y --no-install-recommends \
+      ca-certificates \
+      && rm -rf /var/lib/apt/lists/*
+  
+  # 初始化設定
+  # 複製boxsetting.sh腳本到容器的root家目錄
+  COPY boxsetting.sh /root/boxsetting.sh
+  # 給予boxsetting.sh執行權限
+  RUN chmod +x /root/boxsetting.sh
+  # 執行boxsetting.sh來設定Ubuntu
+  RUN /root/boxsetting.sh
+  # 設定容器啟動時執行的命令（這裡是啟動bash，讓容器保持運行）
+  CMD ["bash"]
+
+  # 說明網路設定
+  EXPOSE 22/tcp 9527/tcp
