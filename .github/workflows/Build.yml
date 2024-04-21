@@ -14,6 +14,7 @@ jobs:
       - name: Check dockerfile.txt existence and non-empty
         run: |
           pwd;
+          ls "./source/Cfg-Docker/dockerfile.txt";
           if [ -s "./source/Cfg-Docker/dockerfile.txt" ]; then
             echo "dockerfile.txt exists and is not empty."
           else
