@@ -13,7 +13,8 @@ jobs:
     steps:
       - name: Check dockerfile.txt existence and non-empty
         run: |
-          if [ -s "source/Cfg-Docker/dockerfile.txt" ]; then
+          pwd;
+          if [ -s "./source/Cfg-Docker/dockerfile.txt" ]; then
             echo "dockerfile.txt exists and is not empty."
           else
             echo "dockerfile.txt does not exist or is empty."
@@ -22,7 +23,7 @@ jobs:
           
       - name: Check BoxSetting.sh existence and non-empty
         run: |
-          if [ -s "source/Scr-SimpleBox/BoxSetting.sh" ]; then
+          if [ -s "./source/Scr-SimpleBox/BoxSetting.sh" ]; then
             echo "BoxSetting.sh exists and is not empty."
           else
             echo "BoxSetting.sh does not exist or is empty."
