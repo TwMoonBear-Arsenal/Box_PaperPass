@@ -1,0 +1,30 @@
+# 使用方式：將此檔案存放在您的 GitHub 倉庫中的 .github/workflows/ 目錄下，並命名為 check_file_existence.yml。
+
+name: Check File Existence
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check_files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check dockerfile.txt existence and non-empty
+        run: |
+          if [ -s "source/Cfg-Docker/dockerfile.txt" ]; then
+            echo "dockerfile.txt exists and is not empty."
+          else
+            echo "dockerfile.txt does not exist or is empty."
+            exit 1
+          fi
+          
+      - name: Check BoxSetting.sh existence and non-empty
+        run: |
+          if [ -s "source/Scr-SimpleBox/BoxSetting.sh" ]; then
+            echo "BoxSetting.sh exists and is not empty."
+          else
+            echo "BoxSetting.sh does not exist or is empty."
+            exit 1
+          fi
