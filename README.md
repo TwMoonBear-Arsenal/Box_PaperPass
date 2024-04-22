@@ -36,27 +36,26 @@ Box_SimpleOne
 
 # 貳、REPO內容結構
 
-* Github Repo<br/>
-  📁.github  <br/>
-  └📁actions  <br/>
-    └🗎 BuildTest.yml *<= 組建測試* <br/> 
-      └🗎 DockerizationTest.yml *<= 容器化測試* <br/>
-      └🗎 ModuleTest.yml *<= 模組功能測試* <br/>
-      └🗎 PublishZip.yml *<= 發佈腳本壓縮檔* <br/>
-  📁.vs<br/>
-  📁doc<br/>
-  📁source<br/>
-   └📁Docker<br/>
-   │ └🗎 dockerfile_Prompt.md<br/>
-   │ └🗎 dockerfile.txt<br/>
-   └📁Scr_SimpleBox<br/>
-   │ └🗎 BoxSetting_Prompt.md<br/>
-   │ └🗎 BoxSetting.sh<br/>
-   └📁Scr_SimpleBox_ModTest<br/>
-     └🗎 Scr_SimpleBox_ModTest_Prompt.txt<br/>
-     └🗎 Scr_SimpleBox_ModTest.sh<br/>
-  🗎 .gitignore<br/>
-  🗎 README.md<br/>
+📁.github  <br/>
+　└📁actions  <br/>
+　　　└🗎 BuildTest.yml *<= 組建測試* <br/> 
+　　　└🗎 DockerizationTest.yml *<= 容器化測試* <br/>
+　　　└🗎 ModuleTest.yml *<= 模組功能測試* <br/>
+　　　└🗎 PublishZip.yml *<= 發佈腳本壓縮檔* <br/>
+📁.vs<br/>
+📁doc<br/>
+📁source<br/>
+　└📁Docker<br/>
+　│　└🗎 dockerfile_Prompt.md<br/>
+　│　└🗎 dockerfile.txt<br/>
+　└📁Scr_SimpleBox<br/>
+　│　└🗎 BoxSetting_Prompt.md<br/>
+　│　└🗎 BoxSetting.sh<br/>
+　└📁Scr_SimpleBox_ModTest<br/>
+　　　└🗎 Scr_SimpleBox_ModTest_Prompt.txt<br/>
+　　　└🗎 Scr_SimpleBox_ModTest.sh<br/>
+🗎 .gitignore<br/>
+🗎 README.md<br/>
 
 # 參、REPO使用方法
 
