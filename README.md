@@ -37,12 +37,12 @@ Box_SimpleOne
 # 貳、REPO內容結構
 
 * Github Repo<br/>
-  📁.github<br/>
-   └📁actions<br/>
-     └🗎 BuildTest.yml *<= 組建測試*<br/> 
-  　 └🗎 DockerizationTest.yml *<= 容器化測試*<br/>
-     └🗎 ModuleTest.yml *<= 模組功能測試*<br/> 
-  　 └🗎 PublishZip.yml *<= 發佈腳本壓縮檔*<br/>
+  📁.github  <br/>
+  └📁actions  <br/>
+    └🗎 BuildTest.yml *<= 組建測試* <br/> 
+      └🗎 DockerizationTest.yml *<= 容器化測試* <br/>
+      └🗎 ModuleTest.yml *<= 模組功能測試* <br/>
+      └🗎 PublishZip.yml *<= 發佈腳本壓縮檔* <br/>
   📁.vs<br/>
   📁doc<br/>
   📁source<br/>
