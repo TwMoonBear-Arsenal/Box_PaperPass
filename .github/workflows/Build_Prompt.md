@@ -6,13 +6,13 @@
 
 ## 未來運用構想
 
-- I want to  use GitHub Action to check if specific files do exist in my repo.
+- I want to  use GitHub Action to test if specific files do exist in my repo. 
 
-# 擬請ChatGPT提供項目
+# 擬請ChatGPT提供具體項目
 
 - Please write a Github Action file contains following functions.Thank you.
-  * Check "source/Cfg-Docker/dockerfile.txt" exists and not a empty file.
-  * Check "source/Scr-SimpleBox/BoxSetting.sh" exists and not a empty file.
+  * Check whether "source/Cfg-Docker/dockerfile.txt" exists in this repository.
+  * Check whether "source/Scr-SimpleBox/BoxSetting.sh" exists in this repository.
 
 # 擬請ChatGPT作業流程
 

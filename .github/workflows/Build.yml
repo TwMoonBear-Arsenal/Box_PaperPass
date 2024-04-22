@@ -1,35 +1,34 @@
-# 使用方式：將此檔案存放在您的 GitHub 倉庫中的 .github/workflows/ 目錄下，並命名為 check_file_existence.yml。
+# 使用方式：將此GitHub Action設定檔案儲存於您的儲存庫中的.github/workflows目錄下。當您向main分支推送時，此動作將自動運行，檢查指定的檔案是否存在。
 
-name: Check File Existence
+name: 檢查檔案存在性
 
 on:
   push:
     branches:
-      - main
+      - main  # 可以根據需要修改觸發分支
 
 jobs:
   check_files:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # 運行環境為最新版的Ubuntu
+
     steps:
-      - name: Check dockerfile.txt existence and non-empty
+      - name: Checkout code
+        uses: actions/checkout@v2  # 使用actions/checkout@v2這個Action來檢出代碼
+
+      - name: 檢查 dockerfile.txt 是否存在
         run: |
-          pwd;
-          ls;
-          cd ./source/Cfg-Docker;
-          ls;
-          ls "./source/Cfg-Docker/dockerfile.txt";
-          if [ -s "./source/Cfg-Docker/dockerfile.txt" ]; then
-            echo "dockerfile.txt exists and is not empty."
+          if [ -f source/Cfg-Docker/dockerfile.txt ]; then
+            echo "dockerfile.txt 存在."
           else
-            echo "dockerfile.txt does not exist or is empty."
-            exit 1
+            echo "錯誤：dockerfile.txt 不存在."
+            exit 1  # 如果檔案不存在，則退出狀態為1
           fi
-          
-      - name: Check BoxSetting.sh existence and non-empty
+
+      - name: 檢查 BoxSetting.sh 是否存在
         run: |
-          if [ -s "./source/Scr-SimpleBox/BoxSetting.sh" ]; then
-            echo "BoxSetting.sh exists and is not empty."
+          if [ -f source/Scr-SimpleBox/BoxSetting.sh ]; then
+            echo "BoxSetting.sh 存在."
           else
-            echo "BoxSetting.sh does not exist or is empty."
-            exit 1
+            echo "錯誤：BoxSetting.sh 不存在."
+            exit 1  # 如果檔案不存在，則退出狀態為1
           fi
