@@ -15,15 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2  # 使用actions/checkout@v2這個Action來檢出代碼
 
-      - name: 檢查 dockerfile.txt 是否存在
-        run: |
-          if [ -f source/Cfg-Docker/dockerfile.txt ]; then
-            echo "dockerfile.txt 存在."
-          else
-            echo "錯誤：dockerfile.txt 不存在."
-            exit 1  # 如果檔案不存在，則退出狀態為1
-          fi
-
       - name: 檢查 BoxSetting.sh 是否存在
         run: |
           if [ -f source/Scr-SimpleBox/BoxSetting.sh ]; then

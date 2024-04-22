@@ -11,7 +11,6 @@
 # 擬請ChatGPT提供具體項目
 
 - Please write a Github Action file contains following functions.Thank you.
-  * Check whether "source/Cfg-Docker/dockerfile.txt" exists in this repository.
   * Check whether "source/Scr-SimpleBox/BoxSetting.sh" exists in this repository.
 
 # 擬請ChatGPT作業流程
