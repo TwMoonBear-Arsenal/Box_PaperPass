@@ -10,8 +10,8 @@
 # 擬請ChatGPT提供具體項目
 
 - Please write a Github Action file contains following functions.Thank you.
-  * name the action and job as "DockerizationTest".
-  * setthe job needs "BuildTest.BuildTest".
+  * name the action as "DockerizationTest".
+  * set this action workflow_run after the "BuildTest" workflow is complete.
   * Copy the "source/Scr_SimpleBox/BoxSetting.sh" and "source/Cfg_Docker/dockerfile.txt" to same work folder.
   * test whether the dockerfile.txt works well.
 
@@ -30,8 +30,7 @@
 ```yaml
 # 使用方式：將此檔案存放在...
 
-name: Check File Existence
-
+name: ...
 on:
   push:
     branches:

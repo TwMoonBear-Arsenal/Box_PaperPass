@@ -10,7 +10,7 @@
 # 擬請ChatGPT提供具體項目
 
 - Please write a Github Action file contains following functions.Thank you.
-  * name the action and job as "BuildTest".
+  * name the action as "BuildTest".
   * Check whether "source/Scr-SimpleBox/BoxSetting.sh" exists in this repository.
 
 # 擬請ChatGPT作業流程
