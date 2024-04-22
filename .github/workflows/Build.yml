@@ -1,6 +1,6 @@
 # 使用方式：將此GitHub Action設定檔案儲存於您的儲存庫中的.github/workflows目錄下。當您向main分支推送時，此動作將自動運行，檢查指定的檔案是否存在。
 
-name: 檢查檔案存在性
+name: BuildTest
 
 on:
   push:
