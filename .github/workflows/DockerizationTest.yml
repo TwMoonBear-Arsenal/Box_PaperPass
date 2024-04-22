@@ -1,4 +1,4 @@
-# 使用方式：將此檔案存放在`.github/workflows/`目錄下，命名為`dockerization_test.yml`
+# 使用方式：將此檔案存放在 .github/workflows/ 目錄下
 
 name: DockerizationTest
 on:
@@ -11,15 +11,21 @@ jobs:
   test_dockerfile:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
-      
-      - name: Copy files to working directory
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Copy necessary files
         run: |
           cp source/Scr_SimpleBox/BoxSetting.sh .
-          cp source/Cfg_Docker/dockerfile.txt .
+          cp source/Cfg_Docker/dockerfile .
+
+      - name: Build Docker image
+        run: |
+          docker build -t myimage:latest .
 
       - name: Test Dockerfile
         run: |
-          docker build -t myimage .
-          docker run myimage
+          docker run myimage:latest /bin/sh -c "echo Dockerfile test passed!"

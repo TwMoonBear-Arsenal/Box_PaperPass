@@ -12,8 +12,8 @@
 - Please write a Github Action file contains following functions.Thank you.
   * name the action as "DockerizationTest".
   * set this action workflow_run after the "BuildTest" workflow is complete.
-  * Copy the "source/Scr_SimpleBox/BoxSetting.sh" and "source/Cfg_Docker/dockerfile.txt" to same work folder.
-  * test whether the dockerfile.txt works well.
+  * Copy the "source/Scr_SimpleBox/BoxSetting.sh" and "source/Cfg_Docker/dockerfile" to same work folder.
+  * test whether the dockerfile works well.
 
 # 擬請ChatGPT作業流程
 
@@ -40,9 +40,5 @@ jobs:
   check_files:
     runs-on: ubuntu-latest
     steps:
-      - name: Check dockerfile.txt existence and non-empty
-        run: ...
-          
-      - name: Check BoxSetting.sh existence and non-empty
-        run: ...
+      - name: 
 ```
