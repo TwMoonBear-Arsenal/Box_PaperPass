@@ -1,0 +1,25 @@
+# 使用方式：将此文件存放在您的 GitHub 仓库的 .github/workflows 目录下，命名为 dockerization_test.yml
+
+name: DockerizationTest
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  dockerization_test:
+    runs-on: ubuntu-latest
+    needs: BuildTest.build_test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Copy files
+        run: |
+          cp source/Scr_SimpleBox/BoxSetting.sh .
+          cp source/Cfg_Docker/dockerfile.txt .
+      
+      - name: Test Dockerfile
+        run: |
+          # Add your Dockerfile test commands here

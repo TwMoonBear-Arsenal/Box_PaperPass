@@ -1,16 +1,16 @@
-請求協助事項說明
+請求事項說明
 ========
 > by carlton0521
 
-# 目的說明
+# 運用構想
 
-## 未來運用構想
-
-- I want to  use GitHub Action to test if specific files do exist in my repo. 
+- I need ChatGPT provide me a Github action file. 
+- I want to use the action file to test if specific files do exist in my repo. 
 
 # 擬請ChatGPT提供具體項目
 
 - Please write a Github Action file contains following functions.Thank you.
+  * name the action and job as "BuildTest".
   * Check whether "source/Scr-SimpleBox/BoxSetting.sh" exists in this repository.
 
 # 擬請ChatGPT作業流程
