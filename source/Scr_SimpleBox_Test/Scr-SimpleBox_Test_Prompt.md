@@ -10,6 +10,9 @@ I've prepared a vulnerable Ubuntu that with weak ssh password and cp-privilege v
 
 * please provide a python script using pyTest to test following test cases.
 
+## 說明：
+* give detail instruction about how to use this script. especially the command to install libraries.
+
 ## 測試個案-管理設定
   * connect the ssh service  with  uid/pwd:boxadmin/boxadmin, the result should show that boxadmin is in sudo group.。
 
@@ -25,8 +28,9 @@ I've prepared a vulnerable Ubuntu that with weak ssh password and cp-privilege v
 # 擬請AI作業流程
 
 ## When prepare the data:
+- assume this file will be named test.py
 - Write comment with traditional Chinese.
-- In the file beginning, give detail instructions about how to use this file.
+- In the file beginning, give detail instructions about how to use this file. Also tell user to use pytest -v for detail info.
 - Do the work step by step. Make it easy to understand for students.
 
 ## When respond the data to me
@@ -35,12 +39,19 @@ I've prepared a vulnerable Ubuntu that with weak ssh password and cp-privilege v
 # 提供AI參考格式
 
 ```python
-# 使用方式：
-# 1 將此檔案存放在...
-# 2 然後...
+# 使用說明：
+# 1. 將此腳本保存為 test_vulnerabilities.py。
+# 2. 安裝 Python,  作法為...
+# 3. 安裝 pytest, 作法為...
+# 4. 安裝 paramiko, 作法為...
+# 5. 在終端機中執行 pytest test_vulnerabilities.py 進行測試。
 
 import pytest
 import ...
+
+# 指定參數
+target_ip = "127.0.0.1"
+target_port = 22
 
 # 測試個案1
 @pytest.fixture(params=["hello", "pytest", "12345", "空字符串"])
