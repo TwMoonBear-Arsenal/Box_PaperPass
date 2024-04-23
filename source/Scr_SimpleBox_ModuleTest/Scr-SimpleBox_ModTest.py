@@ -1,54 +1,69 @@
+# 使用方式：
+# 1. 確保Python環境已安裝pytest和paramiko。
+# 2. 將此檔案存放於您的測試環境中。
+# 3. 在終端機中運行命令 `pytest -v 本檔案名.py` 進行測試。
+
 import pytest
 import paramiko
 
-# 定義SSH連接的基本信息
-HOST = '192.168.0.1'
-PORT = 9527
-
-# 設定Paramiko日誌級別
-paramiko.util.log_to_file('ssh_test.log')
-
-@pytest.fixture(scope="module")
-def ssh_client():
-    """提供一個SSH客戶端連接的fixture"""
+# 公用連接函式
+def ssh_connect(username, password, hostname="localhost", port=22):
+    """使用提供的用戶名和密碼嘗試SSH連接"""
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    return client
-
-def test_sudo_group(ssh_client):
-    """測試個案：確認boxadmin用戶是否在sudo組。
-    連接至SSH服務，使用boxadmin用戶檢查是否在sudo組中。
-    """
     try:
-        ssh_client.connect(HOST, port=PORT, username='boxadmin', password='boxadmin')
-        stdin, stdout, stderr = ssh_client.exec_command('id -nG')
-        groups = stdout.read().decode().strip()
-        ssh_client.close()
-        assert 'sudo' in groups, "boxadmin 應該在 sudo 組"
-        print("boxadmin 在 sudo 組")
+        client.connect(hostname, port=port, username=username, password=password, timeout=10)
+        return client
     except Exception as e:
-        print(f"連接失敗或命令執行錯誤: {str(e)}")
+        return str(e)
 
-def test_login_failure(ssh_client):
-    """測試個案：測試登錄失敗案例。
-    使用錯誤的密碼試圖連接至SSH服務，期望登錄失敗。
-    """
-    with pytest.raises(paramiko.ssh_exception.AuthenticationException):
-        ssh_client.connect(HOST, port=PORT, username='allen', password='allen')
-    print("allen 登錄失敗")
+# 測試個案-管理設定
+def test_ssh_login_as_admin():
+    """測試個案：使用boxadmin/boxadmin登入，並檢查是否在sudo群組中"""
+    client = ssh_connect('boxadmin', 'boxadmin')
+    if isinstance(client, str):
+        assert False, f"連接失敗: {client}"
+    stdin, stdout, stderr = client.exec_command('groups')
+    groups = stdout.read().decode().strip()
+    client.close()
+    assert "sudo" in groups, "boxadmin應該在sudo群組中"
 
-def test_login_success_and_read_file(ssh_client):
-    """測試個案：測試登錄成功及讀取文件。
-    登錄成功後嘗試讀取 ~/user.txt 文件。
-    """
+# 測試個案-外部滲透
+@pytest.mark.parametrize("username,password,expected", [
+    ('allen', 'allen', False),
+    ('allen', 'password', True)
+])
+def test_ssh_login_attempts(username, password, expected):
+    """測試個案：外部滲透，測試不同的登入嘗試"""
+    result = ssh_connect(username, password)
+    if expected:
+        assert isinstance(result, paramiko.SSHClient), "應能成功登入"
+        result.close()
+    else:
+        assert isinstance(result, str), "應登入失敗"
+
+def test_read_user_txt():
+    """測試個案：讀取~/user.txt，確認文件訪問成功"""
+    client = ssh_connect('allen', 'password')
+    if isinstance(client, str):
+        assert False, f"連接失敗: {client}"
+    sftp = client.open_sftp()
     try:
-        ssh_client.connect(HOST, port=PORT, username='allen', password='password')
-        stdin, stdout, stderr = ssh_client.exec_command('cat ~/user.txt')
-        content = stdout.read().decode().strip()
-        ssh_client.close()
-        assert content != '', "應該讀取到文件內容"
-        print("文件讀取成功: " + content)
-    except Exception as e:
-        print(f"登錄成功但讀取文件失敗: {str(e)}")
+        with sftp.file('user.txt', 'r') as file:
+            content = file.read()
+            assert content, "應能讀取user.txt文件內容"
+    finally:
+        sftp.close()
+        client.close()
 
-# Note: The privilege escalation test is omitted due to ethical and security reasons.
+# 測試個案-內部提權
+def test_cp_privilege_escalation():
+    """測試個案：使用提權漏洞讀取/root/root.txt"""
+    client = ssh_connect('allen', 'password')
+    if isinstance(client, str):
+        assert False, f"連接失敗: {client}"
+    # 假設使用某個特定的漏洞提權技術，這裡需要根據具體情況修改
+    stdin, stdout, stderr = client.exec_command('sudo cat /root/root.txt')
+    content = stdout.read().decode().strip()
+    client.close()
+    assert content, "應能利用提權漏洞讀取/root/root.txt"

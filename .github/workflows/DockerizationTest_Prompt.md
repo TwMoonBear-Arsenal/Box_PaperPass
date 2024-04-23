@@ -7,7 +7,7 @@
 - I need ChatGPT provide me a Github action file. 
 - I want to use the action file to test if my dockerfile works well. 
 
-# 擬請ChatGPT提供具體項目
+# 擬請AI提供項目
 
 - Please write a Github Action file contains following functions.Thank you.
   * name the action as "DockerizationTest".
@@ -15,7 +15,7 @@
   * Copy the "source/Scr_SimpleBox/BoxSetting.sh" and "source/Cfg_Docker/dockerfile" to same work folder.
   * test whether the dockerfile works well.
 
-# 擬請ChatGPT作業流程
+# 擬請AI作業流程
 
 ## When prepare the data:
 - give instructions about how to use this file in the beginning.
@@ -25,10 +25,12 @@
 ## When respond the data to me
 - just show the action files only. If you need any thing for reminding, put it in the action file in comment style.
 
-# 參考回復格式
+# 提供AI參考格式
 
 ```yaml
-# 使用方式：將此檔案存放在...
+# 使用方式：
+# 1 將此檔案存放在...
+# 2 然後...
 
 name: ...
 on:

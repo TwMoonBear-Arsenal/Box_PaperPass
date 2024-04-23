@@ -1,40 +1,44 @@
-Request Prompt to ChatGPT
+請求事項說明
 ========
-> ...
+> by carlton0521
 
-# 目的
+# 運用構想：
 
-## 未來運用構想：
 I've prepared a vulnerable Ubuntu that with weak ssh password and cp-privilege vulnerabilities. I need a python test script.
 
-## 擬請ChatGPT提供：
-please provide a python script to test following functions.
+# 擬請AI提供項目
 
-# 需求項目
+* please provide a python script using pyTest to test following test cases.
 
 ## 測試個案-管理設定
-  * connect the ssh service in port 9527 with  uid/pwd:boxadmin/boxadmin, the result should show that boxadmin is in sudo group.。
+  * connect the ssh service  with  uid/pwd:boxadmin/boxadmin, the result should show that boxadmin is in sudo group.。
 
 ## 測試個案-外部滲透
-  * connect the ssh service in port 9527 with  uid/pwd:allen/allen, the result should show login attempt fail.
-  * connect the ssh service in port 9527 with  uid/pwd:allen/password, the result should show login attempt success.
+  * connect the ssh service with  uid/pwd:allen/allen, the result should show login attempt fail.
+  * connect the ssh service with  uid/pwd:allen/password, the result should show login attempt success.
   * read ~/user.txt, the result should show file access success.。
 
 ## 測試個案-內部提權
-  * connect the ssh service in port 9527 with  uid/pwd:allen/password, the result should show login attempt success.
-  * use cp-previlege escallation tech to get root authority then read root.txt in root home directory,  the result should show file access success. 
+  * connect the ssh service with  uid/pwd:allen/password, the result should show login attempt success.
+  * use cp-previlege escallation technology to read /root/root.txt , the result should show file access success. 
 
-# ChatGPT回復格式:
+# 擬請AI作業流程
 
-## 注意事項：
-  * Please use PyTest for test work.
-  * do the work step by step.make it easy to understand for students.
-  * provide limited echo lines with traditional Chinese I show you in following reference.
-  * Each Python function should contains detailed docstrings including A brief description of what the function does.
+## When prepare the data:
+- Write comment with traditional Chinese.
+- In the file beginning, give detail instructions about how to use this file.
+- Do the work step by step. Make it easy to understand for students.
 
-## 回復範例：
+## When respond the data to me
+- just show the action files only. If you need any thing for reminding, put it in the action file in comment style.
 
-```
+# 提供AI參考格式
+
+```python
+# 使用方式：
+# 1 將此檔案存放在...
+# 2 然後...
+
 import pytest
 import ...
 
