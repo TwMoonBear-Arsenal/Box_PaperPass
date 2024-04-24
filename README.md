@@ -75,19 +75,15 @@ Box_SimpleDemo
 
 ### (二)模組組建
 
-* 由於是將bash腳本複製至容器初始化作業，所以只有檢核相關檔案是否存在，並未執行程式build等技術動作。 
-* 利用github action做自動化測試。
-
-### (三)模組封裝
-
-* 以Docker Image為封裝標的，故須提供dockerfile。
+* 由於是將bash腳本複製至容器初始化作業，所以只有檢核檔案做預發佈。 
 * 利用github action做自動化發佈。
 
-### (四)模組測試
+### (三)模組測試
 
-利用github action做自動化測試。
+* 利用github action做自動化測試。
+* 以Docker Image為封裝標的，故須提供dockerfile。
 
-### (五)模組發佈
+### (四)模組發佈
 
 利用github action做自動化發佈。
 
