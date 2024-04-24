@@ -1,7 +1,7 @@
 {
   "git.autofetch": true,
   "python.testing.pytestArgs": [
-    "."
+    "source"
   ],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true
