@@ -28,6 +28,9 @@ jobs:
 
       - name: 打包檔案
         run: zip -r package.zip package/
+    outputs:
+      package: ${{ steps.Build_and_Package.outputs.package }}
+      upload_url: ${{ github.event.release.upload_url }}
 
   PreRelease:
     runs-on: ubuntu-latest
@@ -36,7 +39,7 @@ jobs:
       - name: 上傳至預發佈資源
         uses: actions/upload-release-asset@v1
         with:
-          upload_url: ${{ github.event.release.upload_url }}
+          upload_url: ${{ needs.Build_and_Package.outputs.upload_url }}
           asset_path: ./package.zip
           asset_name: package.zip
           asset_content_type: application/zip
