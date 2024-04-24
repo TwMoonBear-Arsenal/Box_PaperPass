@@ -1,0 +1,36 @@
+# GitHub Actions 設定檔案：1.Package
+# 此 GitHub Actions 工作流程的功能為複製指定檔案到工作資料夾，並將這些檔案打包成 ZIP 檔，準備作為預發布資源。
+# 使用說明: 將本檔案另存成 1.Package.yml, 置於您的儲存庫的 .github/workflows 目錄下。
+
+name: 1.Package
+
+on:
+  push:
+    branches:
+      - main  # 可根據需要調整觸發條件和分支
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 檢出代碼
+        uses: actions/checkout@v3
+
+      - name: 建立打包目錄
+        run: mkdir -p package
+
+      - name: 複製檔案到打包目錄
+        run: |
+          cp source/Scr_SimpleBox/SimpleDemoBox.sh package/SimpleDemoBox.sh
+          cp source/Cfg_Docker/dockerfile package/dockerfile
+          cp READMEmd package/README.md
+
+      - name: 打包檔案
+        run: zip -r package.zip package/
+
+      - name: 上傳至預發布資源
+        uses: actions/upload-artifact@v3
+        with:
+          name: package
+          path: package.zip
