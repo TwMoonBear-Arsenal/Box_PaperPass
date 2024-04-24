@@ -8,10 +8,10 @@ name: 1.Package
 on:
   push:
     branches:
-      - main
+      - main  # 可根據需要調整觸發條件和分支
 
 jobs:
-  Build_and_Package:
+  Package:
     runs-on: ubuntu-latest
     steps:
       - name: 檢出代碼
@@ -28,20 +28,11 @@ jobs:
 
       - name: 打包檔案
         run: zip -r package.zip package/
-    outputs:
-      package: ${{ steps.Build_and_Package.outputs.package }}
-      upload_url: ${{ github.event.release.upload_url }}
 
-  PreRelease:
-    runs-on: ubuntu-latest
-    needs: Build_and_Package
-    steps:
-      - name: 上傳至預發佈資源
+      - name: 上傳至預發布資源
         uses: actions/upload-release-asset@v1
         with:
-          upload_url: ${{ needs.Build_and_Package.outputs.upload_url }}
+          upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./package.zip
           asset_name: package.zip
           asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
