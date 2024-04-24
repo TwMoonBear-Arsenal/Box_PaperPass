@@ -41,6 +41,11 @@ jobs:
           prerelease: true
         # 創建發布版，但不上傳檔案
 
+      - name: Review
+        run: echo "upload_url:${{ steps.create_release.outputs.upload_url }}"
+        env:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+
       - name: 上傳發布檔案
         uses: actions/upload-release-asset@v1
         env:
