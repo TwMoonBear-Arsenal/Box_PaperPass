@@ -22,7 +22,7 @@ jobs:
 
       - name: 複製檔案到打包目錄
         run: |
-          cp source/Scr_SimpleBox/SimpleDemoBox.sh package/SimpleDemoBox.sh
+          cp source/Scr_SimpleDemoBox/SimpleDemoBox.sh package/SimpleDemoBox.sh
           cp source/Cfg_Docker/dockerfile package/dockerfile
           cp READMEmd package/README.md
 
