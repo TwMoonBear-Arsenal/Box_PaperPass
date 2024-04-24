@@ -1,0 +1,41 @@
+# GitHub Actions 設定檔案：1.Package
+# 此 GitHub Actions 工作流程的功能為複製指定檔案到工作資料夾，並將這些檔案打包成 ZIP 檔，準備作為預發布資源。
+# 使用說明: 將本檔案另存成 '1.Package.yml'，並放置於 .github/workflows 目錄下。每當有推送到 'main' 分支時，此工作流程會自動觸發。
+
+name: 1.Package
+
+on:
+  push:
+    branches:
+      - main  # 指定觸發此工作流程的分支，可根據實際情況調整。
+
+jobs:
+  package:
+    runs-on: ubuntu-latest  # 指定運行環境為最新的 Ubuntu。
+
+    steps:
+      - name: 檢出代碼
+        uses: actions/checkout@v2  # 使用 GitHub Action 的檢出步驟來取得倉庫的代碼。
+
+      - name: 建立打包目錄
+        run: mkdir -p package  # 創建一個用於存放將要打包的檔案的目錄。
+
+      - name: 複製檔案到打包目錄
+        run: |
+          cp source/Scr_SimpleDemoBox/SimpleDemoBox.sh package/SimpleDemoBox.sh
+          cp source/Cfg_Docker/dockerfile package/dockerfile
+          cp README.md package/README.md
+        # 將指定的檔案複製到 'package' 目錄下。
+
+      - name: 打包檔案
+        run: zip -r package.zip package/
+        # 使用 zip 命令將 'package' 目錄下的所有檔案打包成一個名為 'package.zip' 的壓縮檔。
+
+      - name: 上傳至預發布資源
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./package.zip
+          asset_name: package.zip
+          asset_content_type: application/zip
+        # 使用 'upload-release-asset' GitHub Action 來上傳 'package.zip' 到 GitHub Release，作為預發布的資源。
