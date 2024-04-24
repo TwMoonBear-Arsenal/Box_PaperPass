@@ -8,12 +8,16 @@
 import pytest
 import paramiko
 
+# 指定參數
+target_ip = "127.0.0.1"
+target_port = 22
+
 # SSH連接函數
 def ssh_connect(username, password):
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     try:
-        client.connect('your_server_ip', port=22, username=username, password=password)
+        client.connect(hostname=target_ip, port=target_port, username=username, password=password)
         return True
     except paramiko.AuthenticationException:
         return False
