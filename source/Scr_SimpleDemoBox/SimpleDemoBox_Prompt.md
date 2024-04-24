@@ -2,15 +2,11 @@ Request Prompt to ChatGPT
 ========
 > ...
 
-# 目的 
-
-## 未來運用構想：
+# 運用構想：
   I want to set a simple vulnerable ubuntu box for cyber security class.
 
-## 擬請ChatGPT提供：
+# 擬請AI提供項目
   please provide a bash script that can set the vulnerabilities in a given Ubuntu.
-
-# 需求項目
 
 ## 提供操作說明：
   - how to run this bash script step by step.
@@ -32,46 +28,54 @@ Request Prompt to ChatGPT
   * check whether sudo function exists. if sudo not exist, install it.
   * authorize all users the privilege that can execute cp command with root privileged.
 
-# ChatGPT回復格式
+# 擬請AI作業流程
 
-## 注意事項：
-  * segment  code exactly according what I mention in  [# 需求項目]
-  * echo empty line between segments.
-  * This script will be run in Ubuntu container by root, don't use sudo.
-  * This script will be run in Ubuntu container with only core functions, use core commands only.
-  * do the work step by step.make it easy to understand for students.
-  * use limited echo lines with traditional Chinese I show you in following reference.
+## When prepare the data:
+- do the work step by step.make it easy to understand for students.
+- provide clear explanation with traditional Chinese.
+- give instructions about how to use this file in the beginning.
+
+## When respond the data to me
+- just show the action files only. If you need any thing for reminding, put it in the action file in comment style.
+* segment  code exactly according what I mention in  [# 需求項目]
+* echo empty line between segments.
+* This script will be run in Ubuntu container by root, don't use sudo.
+* This script will be run in Ubuntu container with only core functions, use core commands only.
+* do the work step by step.make it easy to understand for students.
+* use limited echo lines with traditional Chinese I show you in following reference.
   
-## 回復範例：
-  #!/bin/bash
+# 提供AI參考格式
+```sh
+#!/bin/bash
 
-  # 使用說明  
-  # 1. Copy this script to...
-  # 2. Open terminal...
-  # 3. Navigate to ...
-  # 4. chmod +x ...
-  # 5. Run the command...
+# 使用說明  
+# 1. Copy this script to...
+# 2. Open terminal...
+# 3. Navigate to ...
+# 4. chmod +x ...
+# 5. Run the command...
 
-  # 靶機管理設定
-  echo "" 
-  echo "靶機管理設定"
-  useradd -m...
-  usermod -aG ...
-  echo... | chpasswd
-  service ssh ...
+# 靶機管理設定
+echo "" 
+echo "靶機管理設定"
+useradd -m...
+usermod -aG ...
+echo... | chpasswd
+service ssh ...
 
-  # 外部滲透設定
-  echo ""
-  echo "外部滲透設定"
-  useradd ...
-  service ssh ...
-  
-  
-  # 內部提權設定
-  echo ""
-  echo "內部提權設定"
-  if ...sudo...  
+# 外部滲透設定
+echo ""
+echo "外部滲透設定"
+useradd ...
+service ssh ...
 
-  # 完成設定
-  echo ""
-  echo "完成設定"
+
+# 內部提權設定
+echo ""
+echo "內部提權設定"
+if ...sudo...  
+
+# 完成設定
+echo ""
+echo "完成設定"
+```
