@@ -1,11 +1,11 @@
 # 說明: 此 GitHub Action 文件用於在 "1.Package" 工作流程完成後進行 Docker 容器的構建與測試。
 # 它會從最新的預發布版本中獲取文件，構建並運行 Docker 容器，然後使用 pytest 和指定的 Python 測試腳本進行測試。
 
-name: ModuleTest
+name: 2.ModuleTest
 
 on:
   workflow_run:
-    workflows: ["1.Package"]
+    workflows: ["1.ModulePackage"]
     types:
       - completed
 
