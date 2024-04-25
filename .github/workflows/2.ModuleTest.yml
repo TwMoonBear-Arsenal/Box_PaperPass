@@ -1,0 +1,36 @@
+# 說明: 此 GitHub Action 文件用於在 "1.Package" 工作流程完成後進行 Docker 容器的構建與測試。
+# 它會從最新的預發布版本中獲取文件，構建並運行 Docker 容器，然後使用 pytest 和指定的 Python 測試腳本進行測試。
+
+name: ModuleTest
+
+on:
+  workflow_run:
+    workflows: ["1.Package"]
+    types:
+      - completed
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      # 拉取最新的預發布包文件
+      - name: 下載最新預發布包
+        uses: actions/download-artifact@v2
+        with:
+          name: pre-release-package
+
+      # 構建 Docker 容器
+      - name: 構建 Docker 容器
+        run: |
+          docker build -t my-app .
+
+      # 運行 Docker 容器
+      - name: 運行 Docker 容器
+        run: |
+          docker run -d --name my-running-app my-app
+
+      # 使用 pytest 測試 Docker 容器
+      - name: 使用 pytest 測試容器
+        run: |
+          docker exec my-running-app pytest /path/to/Scr_SimpleBox_Test.py
+
