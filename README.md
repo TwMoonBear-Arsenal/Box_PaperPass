@@ -31,7 +31,7 @@ Box_SimpleDemo
 ## 四、Asset測試個案
 
 1. 個案：**BoxAdmin**可遠端連線**BoxContainer**並具備管理權。
-2. 個案：**BoxUser**可遠端連線**BoxContainer**並以弱密碼登入後，讀取user.flag。
+2. 個案：**BoxUser**可遠端連線**BoxContainer**並以弱密碼(password)登入後，讀取user.flag。
 3. 個案：**BoxUser**可遠端連線**BoxContainer**登入後，操作cp提權讀取root.flag。
 
 # 貳、REPO內容結構
