@@ -5,9 +5,12 @@ name: 2.ModuleTest
 
 on:
   workflow_run:
+    # set this action runs only when the "1.ModulePackage" workflow is completed successfully
     workflows: ["1.ModulePackage"]
     types:
       - completed
+    status:
+      - success    
 
 jobs:
   build_and_test:
