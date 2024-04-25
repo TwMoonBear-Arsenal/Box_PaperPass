@@ -1,0 +1,29 @@
+# 使用方式：
+# 1. 將此檔案存放在你的 GitHub 倉庫中的 .github/workflows 目錄下。
+# 2. 編輯此檔案，將 tag_name 改為你想要設定為 release 的 pre-release 的標籤名稱。
+# 3. 設定好後，提交此檔案到你的 GitHub 倉庫中。
+
+name: 3.ModuleRelease
+on:
+  workflow_run:
+    workflows: ["2.ModuleTest"]
+    types:
+      - completed
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 檢查程式碼
+        uses: actions/checkout@v2
+
+      # 將 pre-release 設為 release
+      - name: 設定 pre-release 為 release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v1.0 # 要設定為 release 的 pre-release 標籤名稱
+          release_name: Release v1.0 # Release 名稱
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

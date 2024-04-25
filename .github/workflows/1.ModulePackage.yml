@@ -1,42 +1,9 @@
-請求事項說明
-========
-> by carlton0521
-
-# 運用構想
-
-- I need AI to provide me a Github action file. 
-- I want to use the action file to collect/package my files in repo and export it to a pre-release. 
-
-# 擬請AI提供項目
-
-- Please write a Github Action file, named "1.Package", contains following jobs.Thank you.
-  * Copy following files to work folder and package them:
-    - "source/Scr_SimpleDemoBox/SimpleDemoBox.sh" 
-    - "source/Cfg_Docker/dockerfile"
-    - "README.md".
-  * Upload these file to this repository as a new pre-release.
-
-# 擬請AI作業流程
-
-## When prepare the data:
-
-- give instructions about how to use this file in the beginning.
-- do the work step by step.make it easy to understand for students.
-- provide clear explanation with traditional Chinese.
-
-## When respond the data to me
-
-- just show the action files only. If you need any thing for reminding, put it in the action file in comment style.
-
-# 提供AI參考格式
-
-```yaml
 # 此 GitHub Actions 工作流程的功能為將指定檔案複製到工作資料夾，並將這些檔案打包成 ZIP 檔，然後上傳至新的預發佈。
 # 使用說明: 
 # 1.將本檔案另存成 .github/workflows/Package.yml 置於您的專案根目錄。
 # 2.當推送至 main 分支後，此工作流程將自動執行。
 
-name: 1.Package
+name: 1.ModulePackage
 
 on:
   push:
@@ -84,4 +51,3 @@ jobs:
           asset_name: package.zip
           asset_content_type: application/zip
         # 使用上傳發布檔案功能，將打包好的檔案上傳至創建的發布版
-```
