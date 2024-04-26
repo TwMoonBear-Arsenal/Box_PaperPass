@@ -9,7 +9,8 @@ on:
     workflows: ["2.ModuleTest"]
     types:
       - completed
-
+    status:
+      - success   
 jobs:
   release:
     runs-on: ubuntu-latest
