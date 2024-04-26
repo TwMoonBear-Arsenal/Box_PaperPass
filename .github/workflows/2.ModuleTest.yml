@@ -7,6 +7,7 @@ on:
   workflow_run:
     workflows: ["1.ModulePackage"]
     types: [completed]
+     # 僅成功時執行
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
 jobs:
