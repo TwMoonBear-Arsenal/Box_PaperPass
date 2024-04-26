@@ -7,10 +7,9 @@ name: 3.ModuleRelease
 on:
   workflow_run:
     workflows: ["2.ModuleTest"]
-    types:
-      - completed
-    status:
-      - success   
+    types: [completed] 
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
 jobs:
   release:
     runs-on: ubuntu-latest
