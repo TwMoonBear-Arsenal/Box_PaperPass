@@ -9,6 +9,8 @@ on:
     workflows: ["1.ModulePackage"]
     types:
       - completed
+    status:
+      - success    
 
 jobs:
   build_and_test:
