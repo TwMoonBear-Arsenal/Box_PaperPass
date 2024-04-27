@@ -50,7 +50,8 @@ jobs:
             });
             let fs = require('fs');
             fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/package.zip`, Buffer.from(download.data));
-            unzip package.zip -d package
+            mkdir package
+            unzip package.zip -d ./package
             ls . -al
             ls ./package -al
 
