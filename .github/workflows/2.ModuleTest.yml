@@ -50,7 +50,13 @@ jobs:
             });
             let fs = require('fs');
             fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/package/package.zip`, Buffer.from(download.data));
-            unzip package/package.zip
+
+      # 解壓縮產物
+      - name: 'Unzip artifact'
+        run: |
+          ls -al
+          unzip package/package.zip
+          ls -al package
 
       # 構建及執行 Docker 容器
       - name: Build and run Docker container
