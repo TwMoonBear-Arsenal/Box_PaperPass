@@ -1,53 +1,42 @@
-# 此 GitHub Actions 工作流程的功能為將指定檔案複製到工作資料夾，並將這些檔案打包成 ZIP 檔，然後上傳至新的預發佈。
-# 使用說明: 
-# 1.將本檔案另存成 .github/workflows/Package.yml 置於您的專案根目錄。
-# 2.當推送至 main 分支後，此工作流程將自動執行。
+# 此 GitHub Workflow 的功能是將指定文件複製到名為 [package] 的文件夾中，並將其打包成 ZIP 文件，以供後續工作流程使用。
+# 使用說明：
+# 1. 將此文件保存為 .github/workflows/1.ModulePackage.yml。
+# 2. 當推送到 main 分支時，此工作流程將自動執行。
 
 name: 1.ModulePackage
 
 on:
   push:
     branches:
-      - main  # 可根據需要調整觸發條件和分支 
+      - main  # 根據需要調整觸發條件和分支
 
 jobs:
-  Package:
+  package_files:
     runs-on: ubuntu-latest
+
     steps:
+      # 檢出代碼
       - name: 檢出代碼
         uses: actions/checkout@v2
 
-      - name: 建立打包目錄
-        run: mkdir -p package
+      # 創建打包文件夾
+      - name: 創建打包文件夾
+        run: mkdir package
 
-      - name: 複製檔案到打包目錄
+      # 複製文件到打包文件夾
+      - name: 複製文件到打包文件夾
         run: |
-          cp source/Scr_SimpleDemoBox/SimpleDemoBox.sh package/SimpleDemoBox.sh
-          cp source/Cfg_Docker/dockerfile package/dockerfile
-          cp README.md package/README.md
+          cp source/Scr_SimpleDemoBox/SimpleDemoBox.sh package/
+          cp source/Cfg_Docker/dockerfile package/
+          cp README.md package/
 
-      - name: 打包檔案
+      # 打包文件
+      - name: 打包文件
         run: zip -r package.zip package/
 
-      - name: 創建發布版
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # 上傳打包文件
+      - name: 上傳打包文件
+        uses: actions/upload-artifact@v2
         with:
-          tag_name: 'v${{ github.run_number }}'
-          release_name: 'Release v${{ github.run_number }}'
-          draft: false
-          prerelease: true
-        # 創建發布版，但不上傳檔案
-
-      - name: 上傳發布檔案
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./package.zip
-          asset_name: package.zip
-          asset_content_type: application/zip
-        # 使用上傳發布檔案功能，將打包好的檔案上傳至創建的發布版
+          name: package
+          path: package.zip
