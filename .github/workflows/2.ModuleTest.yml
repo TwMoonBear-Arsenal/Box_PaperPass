@@ -83,9 +83,9 @@ jobs:
           ls -al
           pytest ./source/Scr_SimpleDemoBox_Test/Scr_SimpleBox_Test.py
 
-      # 測試通過，將原zip原封不動上傳
+      # 測試通過打包上傳(github強制zip)
       - name: 上傳打包文件
         uses: actions/upload-artifact@v4
         with:
           name: package 
-          path: package/package.zip
+          path: package
