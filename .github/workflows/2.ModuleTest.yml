@@ -59,6 +59,15 @@ jobs:
           docker build -t myapp .
           docker run -d --name myapp-container myapp
 
+      # 安裝測試環境 
+      - name: Build and run Docker container
+        run: |
+          sudo apt update
+          sudo apt install python3
+          sudo apt install python3-pip
+          pip3 install pytest
+          pytest --version
+
       # 執行測試
       - name: 執行容器外測試
         run: |
