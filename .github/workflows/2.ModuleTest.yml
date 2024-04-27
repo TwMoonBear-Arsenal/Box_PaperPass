@@ -25,12 +25,6 @@ jobs:
             echo "Previous workflow succeeded. Continuing."
           fi
 
-      - name: List available artifacts
-        run: gh run list --workflow=1.ModulePackage.yml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
       # 下載上一個工作流程的產物
       - name: Get artifact from previous workflow
         uses: actions/download-artifact@v2
