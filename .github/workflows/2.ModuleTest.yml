@@ -36,7 +36,6 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: package
-          path: package
 
       # 構建及執行 Docker 容器
       - name: Build and run Docker container
