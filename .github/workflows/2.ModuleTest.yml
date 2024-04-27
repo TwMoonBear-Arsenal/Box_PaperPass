@@ -57,7 +57,7 @@ jobs:
           ls -al
           mkdir package
           mv package.zip ./package
-          unzip package/package.zip
+          unzip package/package.zip -d package
           ls -al package
 
       # 構建及執行 Docker 容器
