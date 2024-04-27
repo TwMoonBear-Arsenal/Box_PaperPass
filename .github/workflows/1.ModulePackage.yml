@@ -26,10 +26,10 @@ jobs:
       # 複製文件到打包文件夾
       - name: 複製文件到打包文件夾
         run: |
-          cp source/Scr_SimpleDemoBox/SimpleDemoBox.sh package/
-          cp source/Cfg_Docker/dockerfile package/
-          cp README.md package/
-          cp LICENSE package/
+          cp LICENSE package/LICENSE
+          cp README.md package/README.md
+          cp source/Cfg_Docker/dockerfile package/dockerfile
+          cp source/Scr_SimpleDemoBox/SimpleDemoBox.sh package/SimpleDemoBox.sh
 
       # 打包文件
       - name: 打包文件
