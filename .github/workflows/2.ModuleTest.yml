@@ -25,7 +25,11 @@ jobs:
             echo "Previous workflow succeeded. Continuing."
           fi
 
-      # 下載上一個工作流程的產物
+      # 檢出代碼
+      - name: 檢出代碼
+        uses: actions/checkout@v2
+
+      # 下載上一個工作流程的產物至package文件夾以免混亂
       - name: 'Download artifact'
         uses: actions/github-script@v6
         with:
@@ -46,17 +50,14 @@ jobs:
             });
             let fs = require('fs');
             fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/package.zip`, Buffer.from(download.data));
-      
-      # 解壓縮產物
-      - name: 'Unzip artifact'
-        run: |
-          unzip package.zip
-          ls -al
+            unzip package.zip -d package
+            ls . -al
+            ls ./package -al
 
       # 構建及執行 Docker 容器
       - name: Build and run Docker container
         run: |
-          docker build -t myapp .
+          docker build -t myapp ./package
           docker run -d --name myapp-container -p 2222:22 myapp
 
       # 安裝測試環境 
