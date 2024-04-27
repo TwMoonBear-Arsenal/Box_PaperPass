@@ -56,7 +56,7 @@ jobs:
         run: |
           ls -al
           mkdir package
-          mv package.zip package/package.zip
+          mv package.zip ./package
           unzip package/package.zip
           ls -al package
 
