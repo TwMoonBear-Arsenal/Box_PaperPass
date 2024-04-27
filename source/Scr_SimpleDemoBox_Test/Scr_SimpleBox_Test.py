@@ -10,7 +10,7 @@ import paramiko
 
 # 指定參數
 target_ip = "127.0.0.1"  # 請替換成目標主機IP
-target_port = 22  # SSH端口
+target_port = 2222  # SSH端口
 
 @pytest.fixture(scope="module")
 def ssh_client():
