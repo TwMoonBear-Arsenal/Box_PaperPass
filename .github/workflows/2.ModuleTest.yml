@@ -54,9 +54,10 @@ jobs:
       # 解壓縮產物
       - name: 'Unzip artifact'
         run: |
+          ls -al
+          mkdir package
           mv package.zip package/package.zip
           unzip package/package.zip
-          ls -al
           ls -al package
 
       # 構建及執行 Docker 容器
