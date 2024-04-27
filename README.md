@@ -73,19 +73,21 @@ Box_SimpleDemo
 
 主要是dockerfile包含bash腳本，完成後直接存檔source下。
 
-### (二)模組組建
+### (二)模組封裝
 
-* 由於是將bash腳本複製至容器初始化作業，所以只有檢核檔案做預發佈。 
-* 利用github action做自動化發佈。
+* 由於是將bash腳本複製至容器初始化作業，所以只有檢核檔案做Zip。 
+* 以Docker Image為封裝標的，故須提供dockerfile。
+* 利用github workflow做自動化測試，產出zip也會保存在workflow run一陣子。
 
 ### (三)模組測試
 
-* 利用github action做自動化測試。
-* 以Docker Image為封裝標的，故須提供dockerfile。
+* 配合統一性，使用Python+Pipenv。
+* 省略未做單元測試，僅做黑箱模組測試。
+* 先做本地測試後，再做github action做自動化測試。
 
 ### (四)模組發佈
 
-利用github action做自動化發佈。
+手動發佈。
 
 ## 五、系測版控
 
