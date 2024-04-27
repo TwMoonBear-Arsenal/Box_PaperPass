@@ -1,5 +1,6 @@
-# 說明: 這個 GitHub Action 文件 "2.ModuleTest" 是用來在 "1.ModulePackage" 工作流程成功後，自動化地構建和測試 Docker 容器。
-#       請按照以下步驟將此文件放入您的 GitHub 儲存庫中的 .github/workflows 目錄下。
+# 此 GitHub Workflow 的功能是將指定文件複製到名為 [package] 的文件夾中，並將其打包成 ZIP 文件，以供後續工作流程使用。使用說明：
+# 1. 將此文件保存為 .github/workflows/2.ModuleTest.yml。
+# 2. 當推送到 main 分支時，此工作流程將自動執行。
 
 name: 2.ModuleTest
 
@@ -7,31 +8,37 @@ on:
   workflow_run:
     workflows: ["1.ModulePackage"]
     types: [completed]
-     # 僅成功時執行
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
+
     steps:
-      # 下載最新的預發布包文件
-      - name: 下載最新預發布包
+      # 檢查上一個工作流程的狀態
+      - name: Check previous workflow status
+        id: check_status
+        run: |
+          if [ "${{ github.event.workflow_run.conclusion }}" == "failure" ]; then
+            echo "Previous workflow failed. Exiting."
+            exit 1
+          else
+            echo "Previous workflow succeeded. Continuing."
+          fi
+
+      # 下載上一個工作流程的產物
+      - name: Get artifact from previous workflow
         uses: actions/download-artifact@v2
         with:
-          name: pre-release-package
-          path: pre-release
+          name: package
+          path: package
 
-      # 構建 Docker 容器
-      - name: 構建 Docker 容器
+      # 構建及執行 Docker 容器
+      - name: Build and run Docker container
         run: |
-          docker build -t my-app ./pre-release
+          docker build -t myapp package/
+          docker run -d --name myapp-container myapp
 
-      # 運行 Docker 容器
-      - name: 運行 Docker 容器
+      # 執行測試
+      - name: 執行容器外測試
         run: |
-          docker run -d --name my-running-app my-app
-
-      # 使用 pytest 測試 Docker 容器
-      - name: 使用 pytest 測試容器
-        run: |
-          docker exec my-running-app pytest /source/Scr_SimpleDemoBox_Test/Scr_SimpleBox_Test.py
+          pytest source/Scr_SimpleDemoBox_Test/Scr_SimpleBox_Test.py
