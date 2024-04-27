@@ -71,4 +71,6 @@ jobs:
       # 執行測試
       - name: 執行容器外測試
         run: |  
-          pytest source/Scr_SimpleDemoBox_Test/Scr_SimpleBox_Test.py
+          pwd
+          ls -al
+          pytest ./source/Scr_SimpleDemoBox_Test/Scr_SimpleBox_Test.py
