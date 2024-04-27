@@ -49,13 +49,14 @@ jobs:
                archive_format: 'zip',
             });
             let fs = require('fs');
-            fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/package/package.zip`, Buffer.from(download.data));
+            fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/package.zip`, Buffer.from(download.data));
 
       # 解壓縮產物
       - name: 'Unzip artifact'
         run: |
-          ls -al
+          mv package.zip package/package.zip
           unzip package/package.zip
+          ls -al
           ls -al package
 
       # 構建及執行 Docker 容器
