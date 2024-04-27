@@ -29,6 +29,7 @@ jobs:
           cp source/Scr_SimpleDemoBox/SimpleDemoBox.sh package/
           cp source/Cfg_Docker/dockerfile package/
           cp README.md package/
+          cp LICENSE package/
 
       # 打包文件
       - name: 打包文件
