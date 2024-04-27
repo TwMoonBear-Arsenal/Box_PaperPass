@@ -55,6 +55,7 @@ jobs:
       # 創建發布(release)
       - name: Publish Release
         uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           name: $(date +'%Y-%m-%d')
           files: release.zip
