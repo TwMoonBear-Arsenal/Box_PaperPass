@@ -56,7 +56,7 @@ jobs:
       # 構建及執行 Docker 容器
       - name: Build and run Docker container
         run: |
-          docker build -t myapp package/
+          docker build -t myapp .
           docker run -d --name myapp-container myapp
 
       # 執行測試
