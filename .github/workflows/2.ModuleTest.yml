@@ -57,10 +57,10 @@ jobs:
       - name: Build and run Docker container
         run: |
           docker build -t myapp .
-          docker run -d --name myapp-container myapp
+          docker run -d --name myapp-container -p 22:22 myapp
 
       # 安裝測試環境 
-      - name: Build and run Docker container
+      - name: Install test environment
         run: |
           sudo apt update
           sudo apt install python3
