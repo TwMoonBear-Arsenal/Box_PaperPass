@@ -1,6 +1,6 @@
 Paper Pass Box
 ====
-> 國防大學理工學院資工系 助理教授陳佑全
+> Asst. Prof. Carlton.Chen
 
 * Static Info:
   ![版權宣告](https://img.shields.io/github/license/TwMoonBear-Arsenal/Box_PaperPass)
