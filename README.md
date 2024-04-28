@@ -1,13 +1,13 @@
-Box_SimpleDemo
+Paper Pass Box
 ====
 > 國防大學理工學院資工系 助理教授陳佑全
 
-* Static Info:<br/> 
+* Static Info:
   ![版權宣告](https://img.shields.io/github/license/TwMoonBear-Arsenal/Box_PaperPass)
   ![Bash使用](https://img.shields.io/badge/Bash_Script-2A2Ba2)
   ![Docker使用](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
   ![Python使用](https://img.shields.io/badge/Python-14354C.svg?logo=python&logoColor=white)
-* Development Progress:<br/>
+* Development:
   [![可維護度](https://api.codeclimate.com/v1/badges/da0c547d8c6236d10e0e/maintainability)](https://codeclimate.com/github/TwMoonBear-Arsenal/Box_PaperPass/maintainability)
   ![GitHub repo size](https://img.shields.io/github/repo-size/TwMoonBear-Arsenal/Box_PaperPass)
   ![GitHub Tag](https://img.shields.io/github/v/tag/TwMoonBear-Arsenal/Box_PaperPass)
