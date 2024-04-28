@@ -2,14 +2,18 @@ Box_SimpleDemo
 ====
 > 國防大學理工學院資工系 助理教授陳佑全
 
-INFO:
+* 
   ![GitHub License](https://img.shields.io/github/license/TwMoonBear-Arsenal/Box_PaperPass)
   ![Static Badge](https://img.shields.io/badge/Bash_Script-2A2Ba2)
   ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
-  ![Python](https://img.shields.io/badge/Python-14354C.svg?logo=python&logoColor=white)<br/>
-PROGRESS: 
+  ![Python](https://img.shields.io/badge/Python-14354C.svg?logo=python&logoColor=white)
+* 
   [![Maintainability](https://api.codeclimate.com/v1/badges/da0c547d8c6236d10e0e/maintainability)](https://codeclimate.com/github/TwMoonBear-Arsenal/Box_PaperPass/maintainability)
-  
+  [![1.BuildAndPackage](https://github.com/TwMoonBear-Arsenal/Box_PaperPass/actions/workflows/1.BuildAndPackage.yml/badge.svg)](https://github.com/TwMoonBear-Arsenal/Box_PaperPass/actions/workflows/1.BuildAndPackage.yml)
+  [![2.ModuleTest](https://github.com/TwMoonBear-Arsenal/Box_PaperPass/actions/workflows/2.ModuleTest.yml/badge.svg)](https://github.com/TwMoonBear-Arsenal/Box_PaperPass/actions/workflows/2.ModuleTest.yml)
+  ![GitHub Release](https://img.shields.io/github/v/release/TwMoonBear-Arsenal/Box_PaperPass)
+  ![GitHub Release Date](https://img.shields.io/github/release-date/TwMoonBear-Arsenal/Box_PaperPass)
+
 # 壹、Asset運用想定
 
 ## 一、Asset運用目標
