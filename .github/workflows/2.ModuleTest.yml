@@ -6,7 +6,7 @@ name: 2.ModuleTest
 
 on:
   workflow_run:
-    workflows: ["1.ModulePackage"]
+    workflows: ["1.BuildAndPackage"]
     types: [completed]
 
 jobs:

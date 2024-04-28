@@ -2,6 +2,14 @@ Box_SimpleDemo
 ====
 > 國防大學理工學院資工系 助理教授陳佑全
 
+INFO:
+  ![GitHub License](https://img.shields.io/github/license/TwMoonBear-Arsenal/Box_PaperPass)
+  ![Static Badge](https://img.shields.io/badge/Bash_Script-2A2Ba2)
+  ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+  ![Python](https://img.shields.io/badge/Python-14354C.svg?logo=python&logoColor=white)<br/>
+PROGRESS: 
+  [![Maintainability](https://api.codeclimate.com/v1/badges/da0c547d8c6236d10e0e/maintainability)](https://codeclimate.com/github/TwMoonBear-Arsenal/Box_PaperPass/maintainability)
+  
 # 壹、Asset運用想定
 
 ## 一、Asset運用目標

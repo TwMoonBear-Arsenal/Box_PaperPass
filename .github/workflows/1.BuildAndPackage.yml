@@ -1,9 +1,9 @@
 # 此 GitHub Workflow 的功能是將指定文件複製到名為 [package] 的文件夾中，並將其打包成 ZIP 文件，以供後續工作流程使用。
 # 使用說明：
-# 1. 將此文件保存為 .github/workflows/1.ModulePackage.yml。
+# 1. 將此文件保存為 .github/workflows/1.BuildAndPackage.yml。
 # 2. 當推送到 main 分支時，此工作流程將自動執行。
 
-name: 1.ModulePackage
+name: 1.BuildAndPackage
 
 on:
   push:
