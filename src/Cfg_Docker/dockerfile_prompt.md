@@ -5,7 +5,7 @@ Request Prompt to ChatGPT
 # 目的 
 
 ## 未來運用構想：
-  I has a bash script,SimpleDemoBox.sh, that can set a simple vulnerable Ubuntu for lecture.
+  I has a bash script,boxInitialize.sh, that can set a simple vulnerable Ubuntu for lecture.
 
 ## 擬請ChatGPT提供：
   please provide a dockerfile to to following work.
@@ -19,9 +19,9 @@ Request Prompt to ChatGPT
   * Ubuntu new and small zie image  
 
 ## 初始化
-  * Copy a file,SimpleDemoBox.sh to root home directory.
-  * chmod +x SimpleDemoBox.sh.
-  * run the SimpleDemoBox.sh to set the Ubuntu. 
+  * Copy a file,boxInitialize.sh to root home directory.
+  * chmod +x boxInitialize.sh.
+  * run the boxInitialize.sh to set the Ubuntu. 
 
 ## 設定起始程序及網路
   * 設定容器起始時啟動ssh服務，以利管理者遠端控制。
