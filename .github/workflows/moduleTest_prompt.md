@@ -16,7 +16,7 @@
       - **LICENSE**
       - **README.MD**
       - **source/Cfg_Docker/dockerfile**
-      - **source/Scr_SimpleDemoBox/SimpleDemoBox.sh** 
+      - **source/Scr_PaperPassBox/boxInitialize.sh** 
     * Package(Zip) these files and upload for later use. 
   - Step: Deploy
     * Duplicate the **releasePackage** folder as **deployment** folder
@@ -62,7 +62,7 @@ jobs:
       - name: 打包文件
         run: |
           mkdir releasePackage
-          cp LICENSE README.md source/Cfg_Docker/dockerfile source/Scr_SimpleDemoBox/SimpleDemoBox.sh releasePackage/
+          cp LICENSE README.md source/Cfg_Docker/dockerfile source/Scr_PaperPassBox/boxInitialize.sh releasePackage/
           zip -r releasePackage.zip releasePackage/
 
       # 上傳打包文件
