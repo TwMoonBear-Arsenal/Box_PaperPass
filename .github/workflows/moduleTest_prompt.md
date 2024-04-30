@@ -16,14 +16,14 @@
       - **LICENSE**
       - **README.MD**
       - **src/Cfg_Docker/dockerfile**
-      - **src/Scr_PaperPassBox/boxInitialize.sh** 
+      - **src/scr_paperPassBox/boxInitialize.sh** 
     * Package(Zip) these files and upload for later use. 
   - Step: Deploy
     * Duplicate the **releasePackage** folder as **deployment** folder
     * In the **deployment** folder:
       - use the dockerfile to build and run a container with local port **2222** bind to container port **22**.
   - Step: Test
-    * Copy the **Scr_PaperPassBox_Test** folder from repo as test folder.
+    * Copy the **scr_paperPassBox_test** folder from repo as test folder.
     * In the test folder
       - Restore pipenv base on the Pipfile
       - Run the pipEnv shell, and use pytest test the running container.
@@ -62,7 +62,7 @@ jobs:
       - name: 打包文件
         run: |
           mkdir releasePackage
-          cp LICENSE README.md src/Cfg_Docker/dockerfile src/Scr_PaperPassBox/boxInitialize.sh releasePackage/
+          cp LICENSE README.md src/Cfg_Docker/dockerfile src/scr_paperPassBox/boxInitialize.sh releasePackage/
           zip -r releasePackage.zip releasePackage/
 
       # 上傳打包文件
@@ -90,7 +90,7 @@ jobs:
       # 執行測試
       - name: 執行測試
         run: |
-          cp -R src/Scr_PaperPassBox_Test test
+          cp -R src/scr_paperPassBox_test test
           cd test
           pip install pipenv
           pipenv install --deploy --ignore-pipfile
