@@ -20,6 +20,7 @@ jobs:
         run: |
           mkdir releasePackage
           ls -l
+          ls src/scr_paperPassBox/boxInitialize.sh
           cp LICENSE README.md src/Cfg_Docker/dockerfile src/scr_paperPassBox/boxInitialize.sh releasePackage/
           zip -r releasePackage.zip releasePackage/
 
