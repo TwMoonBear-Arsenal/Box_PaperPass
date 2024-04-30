@@ -15,8 +15,8 @@
     * Copy following repo files to a folder, named **releasePackage**:
       - **LICENSE**
       - **README.MD**
-      - **source/Cfg_Docker/dockerfile**
-      - **source/Scr_PaperPassBox/boxInitialize.sh** 
+      - **src/Cfg_Docker/dockerfile**
+      - **src/Scr_PaperPassBox/boxInitialize.sh** 
     * Package(Zip) these files and upload for later use. 
   - Step: Deploy
     * Duplicate the **releasePackage** folder as **deployment** folder
@@ -62,7 +62,7 @@ jobs:
       - name: 打包文件
         run: |
           mkdir releasePackage
-          cp LICENSE README.md source/Cfg_Docker/dockerfile source/Scr_PaperPassBox/boxInitialize.sh releasePackage/
+          cp LICENSE README.md src/Cfg_Docker/dockerfile src/Scr_PaperPassBox/boxInitialize.sh releasePackage/
           zip -r releasePackage.zip releasePackage/
 
       # 上傳打包文件
@@ -90,7 +90,7 @@ jobs:
       # 執行測試
       - name: 執行測試
         run: |
-          cp -R source/Scr_PaperPassBox_Test test
+          cp -R src/Scr_PaperPassBox_Test test
           cd test
           pip install pipenv
           pipenv install --deploy --ignore-pipfile
