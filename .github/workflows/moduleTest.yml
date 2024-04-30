@@ -38,11 +38,11 @@ jobs:
           docker build -t myapp:latest .
           docker run -d -p 2222:22 --name myapp_container myapp:latest
 
-      # 準備測試環境
+      # 準備測試環境(須配合pipenv版本)
       - name: 準備 Python 測試環境
         uses: actions/setup-python@v2
         with:
-          python-version: '3.10.9'
+          python-version: '3.10.10'
 
       # 執行測試
       - name: 執行測試

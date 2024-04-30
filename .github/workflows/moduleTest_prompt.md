@@ -62,7 +62,7 @@ jobs:
       - name: 打包文件
         run: |
           mkdir releasePackage
-          cp LICENSE README.md src/Cfg_Docker/dockerfile src/scr_paperPassBox/boxInitialize.sh releasePackage/
+          cp LICENSE README.MD src/Cfg_Docker/dockerfile src/scr_paperPassBox/boxInitialize.sh releasePackage/
           zip -r releasePackage.zip releasePackage/
 
       # 上傳打包文件
@@ -81,11 +81,11 @@ jobs:
           docker build -t myapp:latest .
           docker run -d -p 2222:22 --name myapp_container myapp:latest
 
-      # 準備測試環境
+      # 準備測試環境(須配合pipenv版本)
       - name: 準備 Python 測試環境
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.10.10'
 
       # 執行測試
       - name: 執行測試
