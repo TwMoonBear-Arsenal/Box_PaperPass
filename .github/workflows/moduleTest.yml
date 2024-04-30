@@ -20,14 +20,13 @@ jobs:
         run: |
           mkdir releasePackage
           cp LICENSE README.MD src/Cfg_Docker/dockerfile src/scr_paperPassBox/boxInitialize.sh releasePackage/
-          zip -r releasePackage.zip releasePackage/
 
-      # 上傳打包文件
+      # 上傳打包文件(upload-artifact已自動zip)
       - name: 上傳打包文件
         uses: actions/upload-artifact@v4
         with:
           name: releasePackage
-          path: releasePackage.zip
+          path: releasePackage
 
       # 部署及執行Docker容器
       - name: 部署及執行 Docker 容器
