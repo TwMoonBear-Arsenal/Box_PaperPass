@@ -31,9 +31,8 @@ jobs:
       # 部署及執行Docker容器
       - name: 部署及執行 Docker 容器
         run: |
-          mkdir deployment
-          unzip releasePackage.zip -d deployment
-          cd deployment/releasePackage
+          cp ./releasePackage ./deployment
+          cd deployment
           docker build -t myapp:latest .
           docker run -d -p 2222:22 --name myapp_container myapp:latest
 
