@@ -12,14 +12,14 @@
 - Please write a Github workflow file, named **moduleTest**. This Github workflow file should contain following steps:
   - Use Ubuntu OS
   - Step: Package
-    * Copy following repo files to a folder, named **releasePackage**:
+    * Copy following repo files to a folder, named **release**:
       - **LICENSE**
       - **README.MD**
       - **src/Cfg_Docker/dockerfile**
       - **src/scr_paperPassBox/boxInitialize.sh** 
     * Package(Zip) these files and upload for later use. 
   - Step: Deploy
-    * Duplicate the **releasePackage** folder as **deployment** folder
+    * Duplicate the **release** folder as **deployment** folder
     * In the **deployment** folder:
       - use the dockerfile to build and run a container with local port **2222** bind to container port **22**.
   - Step: Test
@@ -41,7 +41,7 @@
 # 提供AI參考格式
 
 ```yaml
-# 此 GitHub Workflow 的功能是將指定文件複製到名為 releasePackage 的文件夾中，然後使用這些文件來構建和運行 Docker 容器，並進行測試。使用說明：
+# 此 GitHub Workflow 的功能是將指定文件複製到名為 release 的文件夾中，然後使用這些文件來構建和運行 Docker 容器，並進行測試。使用說明：
 # 1. 將此文件保存為 .github/workflows/moduleTest.yml。
 # 2. 當推送到 main 分支或 pull request 事件發生時，此工作流程將自動執行。
 
@@ -61,20 +61,20 @@ jobs:
       # 打包步驟
       - name: 打包文件
         run: |
-          mkdir releasePackage
-          cp LICENSE README.MD src/Cfg_Docker/dockerfile src/scr_paperPassBox/boxInitialize.sh releasePackage/
+          mkdir release
+          cp LICENSE README.MD src/Cfg_Docker/dockerfile src/scr_paperPassBox/boxInitialize.sh release/
 
       # 上傳打包文件(upload-artifact已自動zip)
       - name: 上傳打包文件
         uses: actions/upload-artifact@v4
         with:
-          name: releasePackage
-          path: releasePackage
+          name: release
+          path: release
 
       # 部署及執行Docker容器
       - name: 部署及執行 Docker 容器
         run: |
-          cp -r ./releasePackage ./deployment
+          cp -r ./release ./deployment
           cd deployment
           docker build -t myapp:latest .
           docker run -d -p 2222:22 --name myapp_container myapp:latest
