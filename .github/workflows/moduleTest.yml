@@ -19,7 +19,7 @@ jobs:
       - name: 打包文件
         run: |
           mkdir releasePackage
-          cp LICENSE README.MD src/Cfg_Docker/dockerfile src/scr_paperPassBox/boxInitialize.sh releasePackage/
+          cp LICENSE README.MD src/cfg_docker/dockerfile src/scr_paperPassBox/boxInitialize.sh releasePackage/
 
       # 上傳打包文件(upload-artifact已自動zip)
       - name: 上傳打包文件
