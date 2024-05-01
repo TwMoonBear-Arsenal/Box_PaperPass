@@ -1,6 +1,6 @@
 Paper Pass Box
 ====
-> Asst. Prof. Carlton.Chen
+> github.com/carlton0521
 
 * Static Info:
   ![版權宣告](https://img.shields.io/github/license/TwMoonBear-Arsenal/Box_PaperPass)
@@ -16,7 +16,7 @@ Paper Pass Box
 
 # 摘要說明
 
-* 提供一組Docker相關腳本，運行腳本後可建立簡單紅隊靶機，作為示範教學使
+* 提供一組Docker相關腳本，運行腳本後可建立簡單紅隊靶機，作為示範教學使用。
 
 # 項目介紹
 
@@ -28,25 +28,27 @@ Paper Pass Box
 
 ## 一、模組設計
 
-設計(滾修)後直接於Readme註記。
+* 設計(滾修)後註記於doc/design.md。
 
 ## 二、模發測佈
 
 ### (一)測試準備
 
-* 於develop branch更新。
-* 配合統一性，使用Python+Pipenv。
+* 考量通用性，使用Python的Pipenv虛擬環境。
+* 測試時，
+  1. 確認python安裝pipenv ```pip install pipenv```
+  2. 移動至test資料夾，回復pipenv```pipenv install```
+  3. 執行測試```pipenv run pytest```
 * 省略未做單元測試，僅做黑箱模組測試。
   1. 個案：**BoxAdmin**可遠端連線**BoxContainer**並具備管理權。
   2. 個案：**BoxUser**可遠端連線**BoxContainer**並以弱密碼(password)登入後，讀取user.flag。
   3. 個案：**BoxUser**可遠端連線**BoxContainer**登入後，操作cp提權讀取root.flag。
 
-### (二)模組發展
+### (二)功能發展
 
 * 主要編寫bash腳本用以初始化靶機。
-* 開發中配合已設定之策試Gtihub Workflow進行測試。
-
-### (三)併版發佈
-
 * 本專案設為公開專案，有設定main protection，以pull request併入main。
+
+### (三)模組發佈
+
 * 檢核後手動發佈
