@@ -36,8 +36,8 @@ Paper Pass Box
 
 * 考量通用性，使用Python的Pipenv虛擬環境。
 * 測試時，
-  1. 確認python安裝pipenv '''pip install pipenv'''
-  2. 移動至test資料夾，回復pipenv```pipenv install```
+  1. 確認python安裝pipenv ```pip install pipenv```
+  2. 移動至test資料夾，回復pipenv'''pipenv install'''
   3. 執行測試```pipenv run pytest```
 * 省略未做單元測試，僅做黑箱模組測試。
   1. 個案：**BoxAdmin**可遠端連線**BoxContainer**並具備管理權。
