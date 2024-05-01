@@ -1,6 +1,6 @@
 Paper Pass Box
 ====
-> Asst. Prof. Carlton.Chen
+> github.com/carlton0521
 
 * Static Info:
   ![版權宣告](https://img.shields.io/github/license/TwMoonBear-Arsenal/Box_PaperPass)
