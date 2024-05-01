@@ -4,7 +4,7 @@ Paper Pass Box
 
 * Static Info:
   ![版權宣告](https://img.shields.io/github/license/TwMoonBear-Arsenal/Box_PaperPass)
-  ![Bash使用](https://img.shields.io/badge/Bash_Script-2A2Ba2)
+  ![Bash使用](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
   ![Docker使用](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
   ![Python使用](https://img.shields.io/badge/Python-14354C.svg?logo=python&logoColor=white)
 * Development:
