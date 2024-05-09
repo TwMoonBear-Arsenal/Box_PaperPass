@@ -52,8 +52,10 @@ jobs:
           cd test
           pip install pipenv
           pipenv install --deploy --ignore-pipfile
+          pwd
 
       # 執行Pytest測試(3/3)-執行Pytest測試
       - name: 執行Pytest測試(3/3)-執行Pytest測試
         run: |
+          pwd
           pipenv run pytest
