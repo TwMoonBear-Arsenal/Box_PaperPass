@@ -4,7 +4,7 @@
 
 name: moduleTest
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build_and_test:
@@ -19,7 +19,7 @@ jobs:
       - name: 打包文件
         run: |
           mkdir release
-          cp LICENSE README.MD src/cfg_docker/dockerfile src/scr_paperPassBox/boxInitialize.sh release/
+          cp LICENSE README.md src/cfg_docker/dockerfile src/scr_paperPassBox/boxInitialize.sh release/
 
       # 上傳打包文件(upload-artifact已自動zip)
       - name: 上傳打包文件
