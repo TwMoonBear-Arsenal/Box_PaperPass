@@ -14,9 +14,20 @@ Paper Pass Box
   ![釋出版本](https://img.shields.io/github/v/release/TwMoonBear-Arsenal/Box_PaperPass)
   ![釋出日期](https://img.shields.io/github/release-date/TwMoonBear-Arsenal/Box_PaperPass)
 
-# 摘要說明
+# 1. 摘要資訊
+
+## 1.1. 功能簡介
 
 * 提供一組Docker相關腳本，運行腳本後可建立簡單紅隊靶機，作為示範教學使用。
+
+## 1.2. 主要規格
+
+* 外部滲透：具備ssh弱密碼弱點
+* 決策建議：具備linux cp提權弱點
+
+## 1.3. 未來願景
+
+* TBD
 
 # 項目介紹
 
