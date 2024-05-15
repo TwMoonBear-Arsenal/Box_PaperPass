@@ -8,13 +8,6 @@
 # 設定基底容器
 FROM ubuntu:latest
 
-# 更新Ubuntu套件清單，確保安裝時使用最新版本的軟體
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  openssh-server \
-  ca-certificates \
-  dos2unix \
-  && rm -rf /var/lib/apt/lists/*
-
 # 初始化設定
 # 複製 boxInitialize.sh 腳本到容器的 /root 目錄
 COPY boxInitialize.sh /root/boxInitialize.sh

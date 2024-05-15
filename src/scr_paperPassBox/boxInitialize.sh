@@ -7,6 +7,13 @@
 # 4. 給腳本執行權限: chmod +x setup_vulnerabilities.sh
 # 5. 執行腳本: ./setup_vulnerabilities.sh
 
+#
+apt-get update && apt-get install -y --no-install-recommends \
+  openssh-server \
+  ca-certificates \
+  dos2unix \
+  && rm -rf /var/lib/apt/lists/*
+
 # 靶機管理設定
 echo ""
 echo "靶機管理設定"
