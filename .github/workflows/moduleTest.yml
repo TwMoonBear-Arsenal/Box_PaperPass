@@ -20,7 +20,7 @@ jobs:
         run: |
           mkdir release
           cp LICENSE release/
-          cp README.MD release/
+          cp README.md release/
           cp src/cfg_docker/dockerfile release/
           cp src/scr_paperPassBox/boxInitialize.sh release/
 
